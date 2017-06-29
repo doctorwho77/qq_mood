@@ -73,11 +73,11 @@ headers={
 }
 
 cookie={'QZ_FE_WEBP_SUPPORT': '0', 'ptcz': '7cac1c7521b1ad8be9b1489f9b0aaba8efe9500f0f5dcb7693a9f693d37a8dff', 'fnc': '2', 'skey': '@F6CRfhQVd', 'pgv_si': 's493469696', 'ptui_loginuin': '790178228', 'RK': 'gYFn6+IOYo', 'pt2gguin': 'o0790178228', 'p_uin': 'o0790178228', 'rv2': '808A93A64B1A6FC5AE6D906AB5E744B38AF1EAA4163EC57A76', 'ptisp': 'ctc', 'p_skey': '5Iv6LkqOjJH*JPtrq0xqZmVlBNkbKLCRcDasiGGq71w_', '_qpsvr_localtk': '0.6656868932768703', 'pgv_pvi': '7208859648', '790178228_todaycount': '4', '__Q_w_s_hat_seed': '1', '790178228_totalcount': '24703', 'pgv_pvid': '1698820840', 'qz_screen': '1366x768', 'pt4_token': 'WeiGzJbrn*TO4HO4FFXRdiD3SpXE2UqW2Litsm-TZPw_', 'pgv_info': 'ssid=s6237051136', 'uin': 'o0790178228', 'Loading': 'Yes', 'property20': '9D827FD9F839B247CF95AA1787B450E4D22D6C9F2A76DC8C4D27798667EBB92CA7122514560889AF'}
-gtk='1487542921'
-qzonetoken='c88fd195ae63def1e497b62b6b2ea8b754ddda38c44f3721ab597175b2a7929f0f4bc944b8b18c60'
+gtk=
+qzonetoken=
 s=requests.session()
-my_qq='790178228'
-target_qq='2721182367'
+my_qq=
+target_qq=
 content='加油！'
 cnt=0
 for page in range(0,170):
