@@ -2,7 +2,7 @@ import requests
 import re
 import datetime
 import MySQLdb
-import csv
+import pandas as pd
 from ArticleSpider.qq import QRlogin
 
 def parse_mood(i):
@@ -52,15 +52,16 @@ def parse_mood(i):
             myMood['cmtnum'] = cmtnum
         return myMood
 #从csv文件中取qq号，并保存在一个列表中
-csv_reader = csv.reader(open('qq.csv'))
+scv=pd.read_csv('QQmail.csv', encoding='utf-8',usecols=[2])
 friend=[]
-for row in csv_reader:
-    friend.append(row[3])
-friend.pop(0)
+for indexs in scv.index:
+    friend.append(scv.loc[indexs].values)
 friends=[]
 for f in friend:
-    f=f[:-7]
-    friends.append(f)
+    f=str(f).strip("[]'")
+    if re.search('@qq.com',f):
+        f = f[:-7]
+        friends.append(f)
 headers={
     'Host': 'h5.qzone.qq.com',
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0',
@@ -72,7 +73,7 @@ headers={
 }#伪造浏览器头
 conn = MySQLdb.connect('localhost', 'root', '123456', 'qq_mood', charset="utf8", use_unicode=True)#连接mysql数据库
 cursor = conn.cursor()#定义游标
-cookie,gtk,qzonetoken=QRlogin#通过登录函数取得cookies，gtk，qzonetoken
+cookie,gtk,qzonetoken=QRlogin.QR_login()#通过登录函数取得cookies，gtk，qzonetoken
 s=requests.session()#用requests初始化会话
 for qq in friends:#遍历qq号列表
     for p in range(0,1000):
